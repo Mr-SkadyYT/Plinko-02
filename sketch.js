@@ -17,8 +17,17 @@ function setup(){
     for (var k = 0;k<=width; k = k+80) {
         divisions.push(new Division(k, height-divisionHeight/2,10,divisionHeight));
     }
-    for (var k = 0;k<=width; k = k+80) {
-        plinko.push(new Plinko(k, height-divisionHeight/2,10,divisionHeight));
+    for (var k = 50;k<=width; k = k+80) {
+        plinko.push(new Plinko(k, 100,10));
+    }
+    for (var k = 10;k<=width; k = k+80) {
+        plinko.push(new Plinko(k, 200,10));
+    }
+    for (var k = 50;k<=width; k = k+80) {
+        plinko.push(new Plinko(k, 300,10));
+    }
+    for (var k = 10;k<=width; k = k+80) {
+        plinko.push(new Plinko(k, 400,10));
     }
 
     ground = new Ground(600,height,1200,20);
@@ -27,9 +36,16 @@ function setup(){
 function draw(){
    background(0);
    Engine.update(engine);
+   if (frameCount%60===0){
+       particles.push(new Particle(random(10,300),0,10));
+   }
    for (k = 0;k<divisions.length; k = k+1) {
     divisions[k].display();
+}
+for (k = 0;k<plinko.length; k = k+1) {
     plinko[k].display();
 }
+for (k = 0;k<particles.length; k = k+1) {
+    particles[k].display();
 }
-git add "Division.js" "index.html" "sketch.js" "Plinko.js"
+}
