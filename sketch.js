@@ -36,6 +36,7 @@ function setup(){
 function draw(){
    background(0);
    Engine.update(engine);
+   ground.display();
    if (frameCount%60===0){
        particles.push(new Particle(random(10,300),0,10));
    }
@@ -49,3 +50,4 @@ for (k = 0;k<particles.length; k = k+1) {
     particles[k].display();
 }
 }
+
